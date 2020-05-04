@@ -43,15 +43,12 @@
 </head>
 
 <body lang="en" style="background-color: #DDD1BB;">
-    <div id="map">
-    </div>
-    <div id="OZcontainer">
+</div>
+    <!-- <div id="OZcontainer">
                     <div id="row">
-                <div id="column">
+                <div class="columns small-12">
                     <h2 style="color:#0d4e8f">CHECK IF A PROPERTY IS WITHIN AN OPPORTUNITY ZONE</h2>
-                </div>
-            </div><div id="row">
-            <div id="column">
+            
                 <div id="search">
                     <input type="text" name="addr" placeholder="Search the map" aria-label="Search the map" title="Search the map" value="" id="addr" size="58" onkeydown="if (event.keyCode == 13){
                         document.getElementById('btnSearch').click(); return false;}" />
@@ -62,16 +59,39 @@
                         <div id="results">
                         </div>
                     </div>
-                </div>
+                        <h3 id="OZAnswer"></h3>
+                    </div>
             </div>
-            <div id="row">
-                <div id="column">
-                    <h3 id="OZAnswer"></h3>
-                </div>
-            </div>
+                <div class="columns small-12">
+                    <div id="map">
+                    </div> 
+                   </div>
 
+        </div> -->
+    </div>
+    <div id="OZcontainer">
+                    <div id="row">
+                <div class="column small-24 medium-10 large-12">
+                    <h2 style="color:#0d4e8f">CHECK IF A PROPERTY IS WITHIN AN OPPORTUNITY ZONE</h2>
+            
+                <div id="search">
+                    <input type="text" name="addr" placeholder="Search the map" aria-label="Search the map" title="Search the map" value="" id="addr" size="58" onkeydown="if (event.keyCode == 13){
+                        document.getElementById('btnSearch').click(); return false;}" />
+                        <button type="button" id="btnSearch" aria-label="Search" title="Search" style="background-color: #0d4e8f;">
+                            <i class = 'fas fa-search fa-2x' span style='font-size: 18px; color:white'>
+                            </i>
+                        </button>
+                        <div id="results">
+                        </div>
+                    </div>
+                        <h3 id="OZAnswer"></h3>
+                    </div>
+                <div class="column small-24 medium-14 large-12">
+                    <div id="map">
+                    </div> 
+                   </div>
+</div>
         </div>
-
 <script src="js/oz.js"></script>
 <link rel="stylesheet" href="stylesheet.css" /> 
 </body>
