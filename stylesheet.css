@@ -136,7 +136,7 @@
 }
 
 #btnSearch{
-    position: fixed;
+    position: relative;
 	float: left;
 	vertical-align: middle;
 	width: 45px;
