@@ -54,6 +54,9 @@ $(function () {
         const requestUrl = `https://api.phila.gov/ais/v1/search/${addressInput.value}?gatekeeperKey=${gatekeeperKey}`;
         $.get(requestUrl, function (result) {
             if (result.features.length > 0) {
+                console.log("Did AIS pull an address?")
+                console.log(result.features[0].properties.street_address)
+                console.log(result.features[0].properties.opa_account_num)
                 const coordinates = new L.LatLng(result.features[0].geometry.coordinates[1], result.features[0].geometry.coordinates[0]);
                 if (typeof (new_event_marker) === 'undefined') {
                     new_event_marker = new L.marker(coordinates, { draggable: true });
