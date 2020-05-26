@@ -84,7 +84,7 @@ var json = {
                 {
                     type: "checkbox",
                     name: "willYourProject",
-                    title: "Will your project provide support or a space for existing local businesses?",
+                    title: "Will your project...? (Check all that apply)",
                     colCount:2,
                     choices: [
                         {
