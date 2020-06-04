@@ -13,13 +13,6 @@ Survey
     .StylesManager
     .applyTheme("modern");
 
-// Survey
-//     .JsonObject
-//     .metaData
-//     .addProperty("question", {
-//         name: "score:number",
-//     });
-
 Survey
     .Serializer
     .addProperty("question", "score:number");
@@ -29,9 +22,6 @@ Survey.JsonObject.metaData.addProperty("itemvalue", {name: "score:number"});
 var json = {
     title: "How Inclusive is your project?",
     showProgressBar: "bottom",
-  //  showTimerPanel: "top",
-   // maxTimeToFinishPage: 10,
- //   maxTimeToFinish: 25,
     firstPageIsStarted: true,
     startSurveyText: "Find out!",
     showCompletedPage: false,
@@ -145,75 +135,19 @@ function calcScore(model) {
           finalScore = calcScore(result)
           console.log(calcScore(result));
           if (finalScore >4){
-              reportBack = "This sounds like an exciting and inclusive project! Let's talk about how we can highlight and support it."
+              reportBack = "Great! Your project is in line with the City's goals for building in an Opportunity Zone. Looks like it will be a great addition to the community. Please <a href='mailto:opportunityzones@phila.gov' target='_top' style='text-decoration: underline'>contact us</a> to find out how we can help make it happen."
             }
             else if (finalScore >2){
-                reportBack = "You're off to a good start.  We can help you make this project more inclusive AND make it a reality."
+                reportBack = "Great start! Your project meets some of the City’s goals.  Please <a href='mailto:opportunityzones@phila.gov' target='_top' style='text-decoration: underline'>contact us</a> to find out how you can do even more."
             }
             else {
-                reportBack = "It doesn't sound like this is a very inclusive project…yet. We can help you make this project more inclusive AND make it a reality."
+                reportBack = "Let's work on this! Opportunity Zones create a chance to be inclusive and meet the needs of the existing community while making your project a success. Please <a href='mailto:opportunityzones@phila.gov' target='_top' style='text-decoration: underline'>contact us</a> to find out how to improve this score."
             }
             document
               .querySelector('#surveyResult')
-              //.textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-              .textContent = reportBack
+              .innerHTML = reportBack
       });
-  
 
-// survey
-//     .onComplete
-//     .add(function (result) {
-//         var plainData = survey.getPlainData({
-//         calculations: [{ propertyName: "score" }]
-//         });
-//         document
-//             .querySelector('#surveyResult')
-//             .textContent = "Score: " + JSON.stringify(plainData.reduce(function(sum, questionAnswerData) { return sum + questionAnswerData.score; }, 0));
-//     });
-
-// survey
-//     .onComplete
-//     .add(function (survey) {
-//        var totalScore = 0;
-//        var data = survey.data;
-        
-//        Object.keys(data).forEach(function(qName) {
-//           var question = survey.getQuestionByName(qName);
-//           var qValue = data[qName];
-          
-//           if (question.choices) {
-//             question.choices.forEach(function(choice) {
-//               if (choice.value === qValue) {
-//                 totalScore += +choice.score;
-//               }
-//             });
-//           } else {
-//             totalScore += +question.score;
-//           }
-          
-//         });
-//         console.log(survey)
-//         document
-//             .querySelector('#surveyResult')
-//             .innerHTML = "total score: " + JSON.stringify(totalScore);
-//     });
 
 $("#surveyElement").Survey({model: survey});
 
-// survey
-//     .onComplete
-//     .add(function (result) {
-//         var modifiedData=Object.keys(result.data).map(function(qName){
-//             console.log(result)
-//             return {
-//                // value: result.data[qName],
-//                 score: result.getQuestionByName(qName).score
-//             }
-//         });
-//         document
-//             .querySelector('#surveyResult')
-//             .innerHTML = "results: " + JSON.stringify(modifiedData)
-//             //.textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-// });
-
-// $("#surveyElement").Survey({model: survey});
