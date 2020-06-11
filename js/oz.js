@@ -7,10 +7,10 @@ $(function () {
         query_OZ.intersects(place);
         query_OZ.run(function (error, featureCollection, response){
             if (featureCollection.features.length == 0){
-                document.getElementById("OZAnswer").innerHTML = "<p>This property is not located in an Opportunity Zone.</p><p> <a href='https://opportunity-zones-phl.hub.arcgis.com/pages/ozmap' style='text-decoration: underline'>Find out more</a>.</p>"
+                document.getElementById("OZAnswer").innerHTML = "<p>This property is not located in an Opportunity Zone.</p><p> <a href='https://opportunity-zones-phl.hub.arcgis.com/pages/ozmap' target='_blank' style='text-decoration: underline'>Find out more</a>.</p>"
             }
             else {
-                document.getElementById("OZAnswer").innerHTML = "<p>This property is located in an Opportunity Zone!</p> <p><a href='https://opportunity-zones-phl.hub.arcgis.com/pages/resources' style='text-decoration: underline'>Find out more</a>!</p>";
+                document.getElementById("OZAnswer").innerHTML = "<p>This property is located in an Opportunity Zone!</p> <p><a href='https://opportunity-zones-phl.hub.arcgis.com/pages/resources' target='_blank' style='text-decoration: underline'>Find out more</a>!</p>";
             }
         })
         
