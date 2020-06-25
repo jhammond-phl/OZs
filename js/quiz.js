@@ -38,7 +38,7 @@ var json = {
                 {
                     type: "radiogroup",
                     name: "districtPlan",
-                    title: "Does your project match the goals for your neighborhood in the District Plan [link]?",
+                    title: "Does your project match the goals for your neighborhood in the District Plan?",
                     choices: [
                         {
                             value:"Yes", 
@@ -46,6 +46,10 @@ var json = {
                         },
                         {
                             value: "No",
+                            score: 0
+                        },
+                        {
+                            value: "I don't know",
                             score: 0
                         }
                     ],
@@ -94,7 +98,7 @@ var json = {
                             score: 1
                         },
                         {
-                            value: "Create a new public amenity or provide a service for your community?",
+                            value: "Create a new public amenity or service for the existing community?",
                             score: 1
                         },
                         {
@@ -111,7 +115,8 @@ var json = {
 };
 
 window.survey = new Survey.Model(json);
-function calcScore(model) {
+
+  function calcScore(model) {
     var score = 0;
     var data = model.getPlainData();
     data.forEach((q) => {
@@ -120,15 +125,15 @@ function calcScore(model) {
       }
       if (typeof model.getQuestionByName(q.name).choices !== 'undefined') {
         model.getQuestionByName(q.name).choices.forEach((c) => {
+            if (q.value !== undefined){
           if (typeof c.score !== 'undefined' && q.value.indexOf(c.itemValue) !== -1) {
             score += c.score;
-          }
+          }}
         });
       }
     });
     return score;
   }
-  
   survey
       .onComplete
       .add(function (result) {
@@ -139,6 +144,9 @@ function calcScore(model) {
             }
             else if (finalScore >2){
                 reportBack = "Great start! Your project meets some of the City’s goals.  Please <a href='mailto:opportunityzones@phila.gov' target='_top' style='text-decoration: underline'>contact us</a> to find out how you can do even more."
+            }
+            else if (finalScore ==null){
+                reportBack = "Let's work on this! Opportunity Zones create a chance to be inclusive and meet the needs of the existing community while making your project a success. Please <a href='mailto:opportunityzones@phila.gov' target='_top' style='text-decoration: underline'>contact us</a> to find out how to improve this score."
             }
             else {
                 reportBack = "Let's work on this! Opportunity Zones create a chance to be inclusive and meet the needs of the existing community while making your project a success. Please <a href='mailto:opportunityzones@phila.gov' target='_top' style='text-decoration: underline'>contact us</a> to find out how to improve this score."
