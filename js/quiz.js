@@ -21,19 +21,12 @@ Survey.JsonObject.metaData.addProperty("itemvalue", {name: "score:number"});
 
 var json = {
     title: "How Inclusive is your project?",
-    showProgressBar: "bottom",
-    firstPageIsStarted: true,
-    startSurveyText: "Find out!",
+    //showProgressBar: "bottom",
+    //firstPageIsStarted: true,
+    //startSurveyText: "Find out!",
     showCompletedPage: false,
     pages: [
         {
-            questions: [
-                {
-                    type: "html",
-                    html: "Answer a few questions and..."
-                }
-            ]
-        }, {
             questions: [
                 {
                     type: "radiogroup",
@@ -154,6 +147,11 @@ window.survey = new Survey.Model(json);
             document
               .querySelector('#surveyResult')
               .innerHTML = reportBack
+            document
+              .querySelector('#restartButton')
+              .innerHTML = "<br /><button type='button' style='background-color:#3da5b6; color:white' class='sv-btn sv-footer__prev-btn' onClick='window.location.reload()'>Start Over</button>"
+
+
       });
 
 

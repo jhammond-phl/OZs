@@ -369,3 +369,7 @@ table th a:any-link {
 	color: white;
 	text-decoration: underline;
 }
+#surveyContainer{
+	height:400px;
+	overflow: auto;
+}
